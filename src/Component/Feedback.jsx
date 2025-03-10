@@ -6,7 +6,7 @@ const articles = [
         id: 1,
         title: "7 Nutrition Tips to Lose Weight Faster and Easier",
         description: "Losing weight involves a combination of a balanced diet, regular physical activity, and healthy lifestyle habits.",
-        image: "https://hifilesprod.blob.core.windows.net/images/1708935585419-Group%201.png",
+        image: "https://i.ibb.co.com/FLGj7W5w/nutrient.png",
         readTime: "12 mins read",
         author: "Health Interface"
     },
@@ -14,7 +14,7 @@ const articles = [
         id: 2,
         title: "Complications of Hypertension",
         description: "Understanding the risks and health impacts of hypertension on the body.",
-        image: "https://hiapplications.blob.core.windows.net/images/Complications of Hypertension.jpg",
+        image: "https://i.ibb.co.com/39KZ00S2/patient.png",
         readTime: "28 mins read",
         author: "Health Interface"
     },
@@ -22,7 +22,7 @@ const articles = [
         id: 3,
         title: "Glaucoma - Symptoms and Types",
         description: "A detailed guide on glaucoma, its symptoms, and types.",
-        image: "https://hiapplications.blob.core.windows.net/images/Glaucoma- Symptoms and Types.jpg",
+        image: "https://i.ibb.co.com/rGKqv15z/Glucoma.png",
         readTime: "31 mins read",
         author: "Health Interface"
     },
@@ -30,7 +30,7 @@ const articles = [
         id: 4,
         title: "Living with Diabetes",
         description: "Tips and lifestyle changes to manage diabetes effectively.",
-        image: "https://hiapplications.blob.core.windows.net/images/living with diabites-01.jpg",
+        image: "https://i.ibb.co.com/4ZgMyJyP/diabetes.png",
         readTime: "9 mins read",
         author: "Health Interface"
     }
