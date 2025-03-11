@@ -41,7 +41,7 @@ const Services = () => {
               <h2 className="card-title mt-3 text-[#0C103F]">{service.title}</h2>
               <p className="text-[#0C103F]">{service.description}</p>
               <div className="card-actions justify-end">
-                <button className="btn bg-[#0C103F] text-white hover:bg-[#D0DBF3] hover:text-[#0C103F]">
+                <button className="px-4 py-2 rounded-lg  bg-[#D0DBF3] text-[#0C103F]">
                   Learn More
                 </button>
               </div>

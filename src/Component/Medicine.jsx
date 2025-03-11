@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Menu from "./Menu";
 import Navbar from "./Navbar";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { GiPill } from "react-icons/gi";
+import Footer from "./Footer";
 
 const Medicine = () => {
   const [formData, setFormData] = useState({
@@ -85,7 +87,7 @@ const Medicine = () => {
       <Navbar />
 
       {/* Toggle Button (Top Left) */}
-      <div className="absolute top-20 left-4 ">
+      <div className="absolute top-20 left-4 sm:hidden flex">
         <button
           className="text-2xl text-[#0C103F] bg-[#FFFFFF] p-2 rounded-full shadow-md"
           onClick={() => setIsMenuOpen(true)}
@@ -94,16 +96,30 @@ const Medicine = () => {
         </button>
       </div>
 
-      {/* Overlay Menu (Appears in Top Left) */}
+      {/* Sidebar Menu */}
       {isMenuOpen && (
-        <div className="fixed top-4 left-4 bg-[#FFFFFF] p-4 rounded-lg shadow-lg z-50">
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-xl font-bold text-[#0C103F]">Menu</h2>
-            <button onClick={() => setIsMenuOpen(false)}>
-              <FaTimes className="text-2xl text-[#0C103F]" />
-            </button>
+        <div className="fixed inset-0 z-50 ">
+          {/* Overlay for background dimming */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+
+          {/* Sidebar Menu */}
+          <div className="fixed top-0 right-0 h-full w-52 bg-[#FFFFFF] p-4 rounded-l-lg shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div className="flex justify-between items-center mb-2">
+              
+              <button onClick={() => setIsMenuOpen(false)}>
+                <FaTimes className="text-2xl text-[#0C103F]" />
+              </button>
+              
+            </div>
+            <div className="flex items-center  gap-1">
+            <GiPill className="w-7 h-7 "></GiPill>
+            <h2 className="text-xl font-bold  text-[#0C103F] mb-1">HealthPal</h2>
+            </div>
+            <Menu />
           </div>
-          <Menu />
         </div>
       )}
 
@@ -213,7 +229,7 @@ const Medicine = () => {
 
             <button
               type="submit"
-              className="mt-6 w-full bg-[#0C103F] text-[#FFFFFF] py-2 rounded-lg hover:bg-[#C0CBE3] hover:text-black transition"
+              className="mt-6 w-full bg-[#0C103F] text-[#FFFFFF] py-2 rounded-lg   transition"
             >
               Submit
             </button>
@@ -242,7 +258,7 @@ const Medicine = () => {
               <p className="text-sm text-[#0C103F]">Expiry: {med.expiryDate}</p>
               <p
                 className={`text-sm font-bold mt-2 ${
-                  isExpired(med.expiryDate) ? "text-[#0C103F]" : "text-[#D0DBF3]"
+                  isExpired(med.expiryDate) ? "text-[#0C103F]" : "text-[#0C103F]"
                 }`}
               >
                 {isExpired(med.expiryDate) ? "Expired 🔴" : "Ongoing 🔵"}
@@ -251,6 +267,7 @@ const Medicine = () => {
           ))}
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

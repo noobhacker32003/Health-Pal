@@ -54,10 +54,10 @@ const UserSay = () => {
     };
 
     return (
-        <div className=''>
-            <h1 className='text-4xl font-bold text-center mb-6'>What Our Users Have to Say</h1>
+        <div className='bg-gray-100 pt-5'>
+            <h1 className='text-4xl bg-gray-100  font-bold text-center mb-6'>What Our Users Have to Say</h1>
             <div className="p-2 sm:p-6 bg-gray-100 ">
-                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 bg-gray-100">
                     {feedbacks.map((feedback) => (
                         <div key={feedback.id} className="card bg-white shadow-xl p-6 rounded-2xl">
                             <div className="flex items-center gap-4">

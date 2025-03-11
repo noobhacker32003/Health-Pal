@@ -3,6 +3,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Navbar from "./Navbar";
 import Menu from "./Menu";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { GiPill } from "react-icons/gi";
+import Footer from "./Footer";
 
 const Profile = () => {
     const [user, setUser] = useState(null);
@@ -42,7 +44,7 @@ const Profile = () => {
             <Navbar />
             
             {/* Toggle Button (Top Left) */}
-            <div className="absolute top-20 left-4 ">
+            <div className="absolute top-20 left-4 sm:hidden flex">
                 <button
                     className="text-2xl text-[#0C103F] bg-[#FFFFFF] p-2 rounded-full shadow-md"
                     onClick={() => setIsMenuOpen(true)}
@@ -51,21 +53,35 @@ const Profile = () => {
                 </button>
             </div>
 
-            {/* Overlay Menu (Appears in Top Left) */}
-            {isMenuOpen && (
-                <div className="fixed top-4 left-4 bg-[#FFFFFF] p-4 rounded-lg shadow-lg z-50">
-                    <div className="flex justify-between items-center mb-2">
-                        <h2 className="text-xl font-bold text-[#0C103F]">Menu</h2>
-                        <button onClick={() => setIsMenuOpen(false)}>
-                            <FaTimes className="text-2xl text-[#0C103F]" />
-                        </button>
-                    </div>
-                    <Menu />
-                </div>
-            )}
+             {/* Sidebar Menu */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-50">
+          {/* Overlay for background dimming */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+
+          {/* Sidebar Menu */}
+          <div className="fixed top-0 right-0 h-full w-52 bg-[#FFFFFF] p-4 rounded-l-lg shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div className="flex justify-between items-center mb-2">
+              
+              <button onClick={() => setIsMenuOpen(false)}>
+                <FaTimes className="text-2xl text-[#0C103F]" />
+              </button>
+              
+            </div>
+            <div className="flex items-center  gap-1">
+            <GiPill className="w-7 h-7 "></GiPill>
+            <h2 className="text-xl font-bold  text-[#0C103F] mb-1">HealthPal</h2>
+            </div>
+            <Menu />
+          </div>
+        </div>
+      )}
 
             {/* Search Bar */}
-            <div className="w-full p-4 mt-16">
+            <div className="w-full p-4 ">
                 {/* <input
                     type="text"
                     placeholder="Search here..."
@@ -74,7 +90,7 @@ const Profile = () => {
             </div>
 
             {/* Profile Heading */}
-            <h1 className="text-2xl md:text-3xl font-bold text-[#0C103F] p-4">Your Profile</h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-[#0C103F] pt-10 p-4">Your Profile</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
                 {/* Profile Picture Section */}
@@ -84,7 +100,7 @@ const Profile = () => {
                         <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-[#D0DBF3] flex items-center justify-center text-xl font-bold text-[#0C103F]">
                             {user?.displayName ? user.displayName[0] : "PP"}
                         </div>
-                        <button className="mt-4 bg-[#0C103F] hover:bg-[#D0DBF3] text-white px-4 py-2 rounded-md transition">
+                        <button className="mt-4 bg-[#0C103F]  text-white px-4 py-2 rounded-md transition">
                             Change Picture
                         </button>
                     </div>
@@ -129,26 +145,27 @@ const Profile = () => {
                             <input
                                 type="text"
                                 className="p-2 border border-[#D0DBF3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#0C103F]"
-                                defaultValue="Computer Science"
+                                defaultValue=""
                             />
                         </div>
 
                         <div className="flex flex-col">
                             <label className="text-sm font-medium text-[#0C103F]">Weight</label>
-                            <select className="p-2 border border-[#D0DBF3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#0C103F]">
-                                <option>1st Year</option>
-                                <option>2nd Year</option>
-                                <option selected>3rd Year</option>
-                                <option>4th Year</option>
-                            </select>
+                            <input
+                                type="text"
+                                className="p-2 border border-[#D0DBF3] rounded-md focus:outline-none focus:ring-2 focus:ring-[#0C103F]"
+                                defaultValue=""
+                            />
+                            
                         </div>
 
-                        <button type="submit" className="w-full bg-[#0C103F] hover:bg-[#D0DBF3] text-white px-4 py-2 rounded-md transition">
+                        <button type="submit" className="w-full bg-[#0C103F]  text-white px-4 py-2 rounded-md transition">
                             Save Changes
                         </button>
                     </form>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

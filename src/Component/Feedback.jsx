@@ -8,7 +8,7 @@ const articles = [
         description: "Losing weight involves a combination of a balanced diet, regular physical activity, and healthy lifestyle habits.",
         image: "https://i.ibb.co.com/FLGj7W5w/nutrient.png",
         readTime: "12 mins read",
-        author: "Health Interface"
+        author: "EVERYDAY HEALTH"
     },
     {
         id: 2,
@@ -16,7 +16,7 @@ const articles = [
         description: "Understanding the risks and health impacts of hypertension on the body.",
         image: "https://i.ibb.co.com/39KZ00S2/patient.png",
         readTime: "28 mins read",
-        author: "Health Interface"
+        author: "Dr Rajesh"
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const articles = [
         description: "A detailed guide on glaucoma, its symptoms, and types.",
         image: "https://i.ibb.co.com/rGKqv15z/Glucoma.png",
         readTime: "31 mins read",
-        author: "Health Interface"
+        author: "Dr Rajesh"
     },
     {
         id: 4,
@@ -32,13 +32,13 @@ const articles = [
         description: "Tips and lifestyle changes to manage diabetes effectively.",
         image: "https://i.ibb.co.com/4ZgMyJyP/diabetes.png",
         readTime: "9 mins read",
-        author: "Health Interface"
+        author: "Dr Rajesh"
     }
 ];
 
 const Feedback = () => {
     return (
-        <div className="max-w-6xl mx-auto py-12 px-4">
+        <div className="max-w-6xl mx-auto py-12 px-4 bg-white">
             <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 Read the top articles from Health Experts
             </h2>
@@ -57,7 +57,7 @@ const Feedback = () => {
                     <h3 className="text-xl font-bold mt-4">{articles[0].title}</h3>
                     <p className="text-gray-600 mt-2">{articles[0].description}</p>
                     <p className="text-blue-600 mt-2">{articles[0].author}</p>
-                    <button className="mt-4 px-4 py-2 bg-[#0C103F] text-white py-2 rounded-md hover:bg-[#D0DBF3] transition hover:text-black">
+                    <button className="mt-4 px-4 py-2  text-white py-2 rounded-md bg-[#D0DBF3] transition text-black">
                         Learn More
                     </button>
                 </div>

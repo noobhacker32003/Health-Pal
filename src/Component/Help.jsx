@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Navbar from "./Navbar";
 import Menu from "./Menu";
+import { GiPill } from "react-icons/gi";
+import Footer from "./Footer";
 
 const Help = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to handle the toggle of the menu
@@ -12,7 +14,7 @@ const Help = () => {
       <Navbar />
       
       {/* Toggle Button (Top Left) */}
-      <div className="absolute top-20 left-4 ">
+      <div className="absolute top-20 left-4 sm:hidden flex">
         <button
           className="text-2xl text-[#0C103F] bg-[#FFFFFF] p-2 rounded-full shadow-md"
           onClick={() => setIsMenuOpen(true)}
@@ -21,16 +23,30 @@ const Help = () => {
         </button>
       </div>
 
-      {/* Overlay Menu (Appears in Top Left) */}
+      {/* Sidebar Menu */}
       {isMenuOpen && (
-        <div className="fixed top-4 left-4 bg-[#FFFFFF] p-4 rounded-lg shadow-lg z-50">
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-xl font-bold text-[#0C103F]">Menu</h2>
-            <button onClick={() => setIsMenuOpen(false)}>
-              <FaTimes className="text-2xl text-[#0C103F]" />
-            </button>
+        <div className="fixed inset-0 z-50">
+          {/* Overlay for background dimming */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+
+          {/* Sidebar Menu */}
+          <div className="fixed top-0 right-0 h-full w-52 bg-[#FFFFFF] p-4 rounded-l-lg shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div className="flex justify-between items-center mb-2">
+              
+              <button onClick={() => setIsMenuOpen(false)}>
+                <FaTimes className="text-2xl text-[#0C103F]" />
+              </button>
+              
+            </div>
+            <div className="flex items-center  gap-1">
+            <GiPill className="w-7 h-7 "></GiPill>
+            <h2 className="text-xl font-bold  text-[#0C103F] mb-1">HealthPal</h2>
+            </div>
+            <Menu />
           </div>
-          <Menu />
         </div>
       )}
 
@@ -47,7 +63,7 @@ const Help = () => {
         </div>
 
         {/* Help & Support Content */}
-        <div className="p-6 max-w-full mx-auto py-16">
+        <div className="p-6 max-w-full mx-auto pt-10">
           <h2 className="text-2xl font-bold text-[#0C103F] mb-6">Help & Support</h2>
 
           {/* Main Content Grid */}
@@ -100,7 +116,7 @@ const Help = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-[#0C103F] text-[#FFFFFF] py-2 rounded-lg hover:bg-[#D0DBF3] transition"
+                  className="w-full bg-[#0C103F] text-[#FFFFFF] py-2 rounded-lg  transition"
                 >
                   Submit
                 </button>
@@ -109,6 +125,7 @@ const Help = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

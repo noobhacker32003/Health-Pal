@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Menu from "./Menu";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { GiPill } from "react-icons/gi";
+import Footer from "./Footer";
 
 const Consultation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +30,7 @@ const Consultation = () => {
     <div className="relative min-h-screen bg-gray-100">
       <Navbar></Navbar>
       {/* Toggle Button for Menu */}
-      <div className="absolute top-20 left-4 ">
+      <div className="absolute top-20 left-4 sm:hidden flex">
         <button
           className="text-2xl text-[#0C103F] bg-[#FFFFFF] p-2 rounded-full shadow-md"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -37,31 +39,45 @@ const Consultation = () => {
         </button>
       </div>
 
-      {/* Overlay Menu */}
-      {isMenuOpen && (
-        <div className="fixed top-4 left-4 bg-[#FFFFFF] p-4 rounded-lg shadow-lg z-50">
-          <div className="flex justify-between items-center mb-2">
-            <h2 className="text-xl font-bold text-[#0C103F]">Menu</h2>
-            <button onClick={() => setIsMenuOpen(false)}>
-              <FaTimes className="text-2xl text-[#0C103F]" />
-            </button>
+       {/* Sidebar Menu */}
+       {isMenuOpen && (
+        <div className="fixed inset-0 z-50">
+          {/* Overlay for background dimming */}
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50"
+            onClick={() => setIsMenuOpen(false)}
+          ></div>
+
+          {/* Sidebar Menu */}
+          <div className="fixed top-0 right-0 h-full w-52 bg-[#FFFFFF] p-4 rounded-l-lg shadow-lg transform transition-transform duration-300 ease-in-out">
+            <div className="flex justify-between items-center mb-2">
+              
+              <button onClick={() => setIsMenuOpen(false)}>
+                <FaTimes className="text-2xl text-[#0C103F]" />
+              </button>
+              
+            </div>
+            <div className="flex items-center  gap-1">
+            <GiPill className="w-7 h-7 "></GiPill>
+            <h2 className="text-xl font-bold  text-[#0C103F] mb-1">HealthPal</h2>
+            </div>
+            <Menu />
           </div>
-          <Menu />
         </div>
       )}
 
       {/* Main Content (No Shift, stays in place) */}
-      <div className="pt-24 px-4 md:px-6">
+      <div className="pt-10 px-4 md:px-6">
         <h2 className="text-2xl font-bold text-center text-[#0C103F] mb-6">Consultation</h2>
 
         {/* Cards for selecting options */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[{
-            id: "book", title: "Book a Consultation", desc: "Schedule an appointment with a doctor.", ring: "ring-teal-500"
+            id: "book", title: "Book a Consultation", desc: "Schedule an appointment with a doctor.", ring: ""
           }, {
-            id: "join", title: "Join Live Consultation", desc: "Connect with a doctor in real-time.", ring: "ring-red-500"
+            id: "join", title: "Join Live Consultation", desc: "Connect with a doctor in real-time.", ring: ""
           }, {
-            id: "history", title: "View Previous Consultations", desc: "Check your past appointments.", ring: "ring-blue-500"
+            id: "history", title: "View Previous Consultations", desc: "Check your past appointments.", ring: ""
           }].map((tab) => (
             <div
               key={tab.id}
@@ -91,7 +107,7 @@ const Consultation = () => {
                     value={formData.doctor}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500"
+                    className="w-full px-4 py-2 border rounded-lg  "
                   >
                     <option value="">Choose Doctor</option>
                     {doctors.map((doc, index) => (
@@ -112,7 +128,7 @@ const Consultation = () => {
                       value={formData.date}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-4 py-2 border rounded-lg  "
                     />
                   </div>
                   <div>
@@ -123,7 +139,7 @@ const Consultation = () => {
                       value={formData.time}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500"
+                      className="w-full px-4 py-2 border rounded-lg  "
                     />
                   </div>
                 </div>
@@ -136,7 +152,7 @@ const Consultation = () => {
                     value={formData.type}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-teal-500"
+                    className="w-full px-4 py-2 border rounded-lg  "
                   >
                     <option value="">Select Type</option>
                     <option value="virtual">Virtual</option>
@@ -146,7 +162,7 @@ const Consultation = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-teal-500 text-[#FFFFFF] py-2 rounded-lg hover:bg-teal-600 transition"
+                  className="w-full bg-[#0C103F] text-[#FFFFFF] py-2 rounded-lg  transition"
                 >
                   Book Now
                 </button>
@@ -159,7 +175,7 @@ const Consultation = () => {
             <div className="bg-[#FFFFFF] p-4 md:p-6 rounded-lg shadow-md text-center">
               <h3 className="text-xl font-bold text-[#0C103F] mb-4">Join Live Consultation</h3>
               <p className="text-gray-600">Click the button below to join your scheduled consultation.</p>
-              <button className="mt-4 bg-red-500 text-[#FFFFFF] py-2 px-4 rounded-lg hover:bg-red-600 transition">
+              <button className="mt-4 bg-[#0C103F] text-[#FFFFFF] py-2 px-4 rounded-lg  transition">
                 Join Now
               </button>
             </div>
@@ -187,6 +203,7 @@ const Consultation = () => {
           )}
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
