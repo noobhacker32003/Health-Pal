@@ -3,46 +3,43 @@ import { Link } from 'react-router-dom';
 
 const Menu = () => {
     return (
-        <div>
-<div className="sm:w-64 h-full bg-gray-800 sm:p-4 p-2 sm:fixed text-white">
-      <h2 className="text-xl font-bold">Health Pal</h2>
+        <div className="w-64 h-auto bg-[#0C103F] p-4 text-[#FFFFFF] rounded-lg shadow-lg">
+            <h2 className="text-xl font-bold mb-4 text-[#D0DBF3]">Health Pal</h2>
 
-      <nav className="mt-4">
-        <ul>
-          <li className="mb-2">
-            <Link to="/home" className="block p-2 rounded-lg bg-teal-700 hover:bg-teal-600">
-              Home
-            </Link>
-          </li>
-          <li className="mb-2">
-            <Link to="/medicine" className="block p-2 rounded-lg bg-teal-700 hover:bg-teal-600">
-              Medicine
-            </Link>
-          </li>
-          <li className="mb-2">
-            <Link to="/consultation" className="block p-2 rounded-lg bg-teal-700 hover:bg-teal-600">
-              Consultations
-            </Link>
-          </li>
-          <li className="mb-2">
-            <Link to="/sos" className="block p-2 rounded-lg bg-teal-700 hover:bg-teal-600">
-              Sos
-            </Link>
-          </li>
-          <li className="mb-2">
-            <Link to="/profile" className="block p-2 rounded-lg bg-teal-700 hover:bg-teal-600">
-              Profile & Settings
-            </Link>
-          </li>
-          <li className="mb-2">
-            <Link to="/help" className="block p-2 rounded-lg bg-teal-700 hover:bg-teal-600">
-              Help & Support
-            </Link>
-          </li>
-          
-        </ul>
-      </nav>
-    </div>
+            <nav>
+                <ul className="space-y-2">
+                    <li>
+                        <Link to="/home" className="block p-2 rounded-lg bg-[#EEF2FB] hover:bg-[#D0DBF3] text-[#0C103F]">
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/medicine" className="block p-2 rounded-lg bg-[#EEF2FB] hover:bg-[#D0DBF3] text-[#0C103F]">
+                            Medicine
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/consultation" className="block p-2 rounded-lg bg-[#EEF2FB] hover:bg-[#D0DBF3] text-[#0C103F]">
+                            Consultations
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/sos" className="block p-2 rounded-lg bg-[#EEF2FB] hover:bg-[#D0DBF3] text-[#0C103F]">
+                            SOS
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/profile" className="block p-2 rounded-lg bg-[#EEF2FB] hover:bg-[#D0DBF3] text-[#0C103F]">
+                            Profile & Settings
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/help" className="block p-2 rounded-lg bg-[#EEF2FB] hover:bg-[#D0DBF3] text-[#0C103F]">
+                            Help & Support
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
         </div>
     );
 };

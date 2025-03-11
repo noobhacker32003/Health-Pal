@@ -7,12 +7,10 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-
-    return () => unsubscribe(); // Cleanup listener
+    return () => unsubscribe();
   }, []);
 
   const handleLogout = async () => {
@@ -21,38 +19,41 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar fixed top-0 left-0 w-full z-50 px-5 text-white bg-cyan-900 shadow-md">
-        <div className="navbar-start">
+      <div className="navbar fixed top-0 left-0 w-full z-50 px-5 text-white bg-[#0C103F] shadow-md flex justify-between items-center">
+        <div className="flex items-center gap-2">
           <a href="/">
-            <GiPill className="h-10 w-10" />
+            <GiPill className="h-10 w-10 text-white" />
           </a>
-          <a href="/" className="btn btn-ghost text-xs sm:text-xl">
+          <a href="/" className="text-xl font-bold text-white">
             Health Pal
           </a>
         </div>
 
         {user ? (
-          <div className="navbar-end">
-            <button
-              onClick={handleLogout}
-              className="bg-[#e63946] px-4 py-2 text-white rounded-lg hover:bg-[#d62839] transition"
-            >
-              Logout
-            </button>
-          </div>
+          <button
+            onClick={handleLogout}
+            className="bg-[#D0DBF3] px-4 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition"
+          >
+            Logout
+          </button>
         ) : (
-          <div className="navbar-end gap-4">
-            <a href="/register" className="underline sm:btn sm:btn-accent">
+          <div className="flex gap-4">
+            <button className="bg-[#D0DBF3] px-4 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition">
+            <a href="/register" className="  ">
               Register
             </a>
-            <a href="/login" className="underline sm:btn sm:btn-accent">
+            </button>
+            <button className="bg-[#D0DBF3] px-4 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition"
+          >
+            <a href="/login" className="  ">
               Login
             </a>
+            </button>
           </div>
         )}
       </div>
 
-      {/* To prevent content from being hidden under the fixed navbar */}
+      {/* Spacer to prevent content from being hidden under navbar */}
       <div className="h-16"></div>
     </div>
   );

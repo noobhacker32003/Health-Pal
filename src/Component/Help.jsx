@@ -1,89 +1,106 @@
 import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Navbar from "./Navbar";
 import Menu from "./Menu";
 
 const Help = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to handle the toggle of the menu
 
   return (
     <div className="flex flex-col w-full">
-      {/* Sidebar */}
+      {/* Navbar */}
       <Navbar />
-      <Menu></Menu>
       
+      {/* Toggle Button (Top Left) */}
+      <div className="absolute top-20 left-4 ">
+        <button
+          className="text-2xl text-[#0C103F] bg-[#FFFFFF] p-2 rounded-full shadow-md"
+          onClick={() => setIsMenuOpen(true)}
+        >
+          <FaBars />
+        </button>
+      </div>
+
+      {/* Overlay Menu (Appears in Top Left) */}
+      {isMenuOpen && (
+        <div className="fixed top-4 left-4 bg-[#FFFFFF] p-4 rounded-lg shadow-lg z-50">
+          <div className="flex justify-between items-center mb-2">
+            <h2 className="text-xl font-bold text-[#0C103F]">Menu</h2>
+            <button onClick={() => setIsMenuOpen(false)}>
+              <FaTimes className="text-2xl text-[#0C103F]" />
+            </button>
+          </div>
+          <Menu />
+        </div>
+      )}
+
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Navbar */}
-        <div className="bg-white shadow-md p-4 flex items-center justify-between">
-          <button
-            className="md:hidden text-gray-700 text-2xl"
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          >
-            <FaBars />
-          </button>
-          <input
+        <div className="bg-[#FFFFFF]  p-4 flex items-center justify-between">
+          {/* Search Bar */}
+          {/* <input
             type="text"
             placeholder="Search here..."
-            className="border rounded-lg px-4 py-2 w-full md:w-96"
-          />
+            className="border rounded-lg px-4 py-2 w-full md:w-96 focus:outline-none focus:ring-2 focus:ring-[#0C103F]"
+          /> */}
         </div>
 
         {/* Help & Support Content */}
-        <div className="p-6 max-w-full mx-auto">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Help & Support</h2>
+        <div className="p-6 max-w-full mx-auto py-16">
+          <h2 className="text-2xl font-bold text-[#0C103F] mb-6">Help & Support</h2>
 
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6">
             {/* FAQ Section */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-4">Frequently Asked Questions</h3>
+            <div className="bg-[#FFFFFF] p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold mb-4 text-[#0C103F]">Frequently Asked Questions</h3>
               <div className="space-y-2">
                 <details className="border p-3 rounded-lg cursor-pointer">
-                  <summary className="font-bold">How do I list an item for sale?</summary>
-                  <p className="text-gray-600 mt-2">You can list an item by going to 'Your Listings'.</p>
+                  <summary className="font-bold text-[#0C103F]">How do I make a consultation?</summary>
+                  <p className="text-[#0C103F] mt-2">You book an appointment through the consultation menu.</p>
                 </details>
                 <details className="border p-3 rounded-lg cursor-pointer">
-                  <summary className="font-bold">How can I contact a seller?</summary>
-                  <p className="text-gray-600 mt-2">You can contact a seller through the 'Chat' feature.</p>
+                  <summary className="font-bold text-[#0C103F]">How to call an ambulance?</summary>
+                  <p className="text-[#0C103F] mt-2">Just press the SOS button and the ambulance will be at your doorstep.</p>
                 </details>
                 <details className="border p-3 rounded-lg cursor-pointer">
-                  <summary className="font-bold">What payment methods are accepted?</summary>
-                  <p className="text-gray-600 mt-2">We accept credit/debit cards and PayPal.</p>
+                  <summary className="font-bold text-[#0C103F]">What payment methods are there?</summary>
+                  <p className="text-[#0C103F] mt-2">All payment information will be given to your email by the respected hospitals.</p>
                 </details>
               </div>
             </div>
 
             {/* Contact Support Form */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-4">Contact Support</h3>
+            <div className="bg-[#FFFFFF] p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold mb-4 text-[#0C103F]">Contact Support</h3>
               <form>
                 <div className="mb-4">
-                  <label className="block text-gray-700">Name</label>
+                  <label className="block text-[#0C103F]">Name</label>
                   <input
                     type="text"
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-yellow-500"
+                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#0C103F]"
                     placeholder="Your name"
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700">Email</label>
+                  <label className="block text-[#0C103F]">Email</label>
                   <input
                     type="email"
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-yellow-500"
+                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#0C103F]"
                     placeholder="Your email address"
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700">Message</label>
+                  <label className="block text-[#0C103F]">Message</label>
                   <textarea
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-yellow-500"
+                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-[#0C103F]"
                     placeholder="Describe your issue or question"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition"
+                  className="w-full bg-[#0C103F] text-[#FFFFFF] py-2 rounded-lg hover:bg-[#D0DBF3] transition"
                 >
                   Submit
                 </button>

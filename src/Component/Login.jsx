@@ -58,14 +58,14 @@ const Login = () => {
 
           <button
             type="submit"
-            className="mt-6 w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600 transition"
+            className="mt-6 w-full bg-[#0C103F] px-4 py-2 text-[#FFFFFF] rounded-lg hover:bg-[#EEF2FB] hover:text-black transition"
           >
             Login
           </button>
         </form>
 
         <p className="text-center mt-4">
-          Don't have an account? <a href="/register" className="text-teal-500">Register</a>
+          Don't have an account? <a href="/register" className="text-[#0C103F]">Register</a>
         </p>
       </div>
     </div>

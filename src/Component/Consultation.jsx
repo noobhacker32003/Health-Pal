@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Menu from "./Menu";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Consultation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(null);
   const [formData, setFormData] = useState({
     doctor: "",
@@ -23,28 +25,52 @@ const Consultation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Navbar />
-      <Menu />
+    <div className="relative min-h-screen bg-gray-100">
+      <Navbar></Navbar>
+      {/* Toggle Button for Menu */}
+      <div className="absolute top-20 left-4 ">
+        <button
+          className="text-2xl text-[#0C103F] bg-[#FFFFFF] p-2 rounded-full shadow-md"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <FaBars />
+        </button>
+      </div>
 
-      <div className="max-w-3xl mx-auto p-4 md:p-6">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Consultation</h2>
+      {/* Overlay Menu */}
+      {isMenuOpen && (
+        <div className="fixed top-4 left-4 bg-[#FFFFFF] p-4 rounded-lg shadow-lg z-50">
+          <div className="flex justify-between items-center mb-2">
+            <h2 className="text-xl font-bold text-[#0C103F]">Menu</h2>
+            <button onClick={() => setIsMenuOpen(false)}>
+              <FaTimes className="text-2xl text-[#0C103F]" />
+            </button>
+          </div>
+          <Menu />
+        </div>
+      )}
+
+      {/* Main Content (No Shift, stays in place) */}
+      <div className="pt-24 px-4 md:px-6">
+        <h2 className="text-2xl font-bold text-center text-[#0C103F] mb-6">Consultation</h2>
 
         {/* Cards for selecting options */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            { id: "book", title: "Book a Consultation", desc: "Schedule an appointment with a doctor.", ring: "ring-teal-500" },
-            { id: "join", title: "Join Live Consultation", desc: "Connect with a doctor in real-time.", ring: "ring-red-500" },
-            { id: "history", title: "View Previous Consultations", desc: "Check your past appointments.", ring: "ring-blue-500" },
-          ].map((tab) => (
+          {[{
+            id: "book", title: "Book a Consultation", desc: "Schedule an appointment with a doctor.", ring: "ring-teal-500"
+          }, {
+            id: "join", title: "Join Live Consultation", desc: "Connect with a doctor in real-time.", ring: "ring-red-500"
+          }, {
+            id: "history", title: "View Previous Consultations", desc: "Check your past appointments.", ring: "ring-blue-500"
+          }].map((tab) => (
             <div
               key={tab.id}
-              className={`bg-white p-4 md:p-6 rounded-lg shadow-lg text-center cursor-pointer hover:shadow-xl transition ${
+              className={`bg-[#FFFFFF] p-4 md:p-6 rounded-lg shadow-lg text-center cursor-pointer hover:shadow-xl transition ${
                 activeTab === tab.id ? `ring-2 ${tab.ring}` : ""
               }`}
               onClick={() => setActiveTab(activeTab === tab.id ? null : tab.id)}
             >
-              <h3 className="text-lg md:text-xl font-bold text-gray-800">{tab.title}</h3>
+              <h3 className="text-lg md:text-xl font-bold text-[#0C103F]">{tab.title}</h3>
               <p className="text-gray-600 mt-2">{tab.desc}</p>
             </div>
           ))}
@@ -54,12 +80,12 @@ const Consultation = () => {
         <div className="mt-6">
           {/* Book Consultation Form */}
           {activeTab === "book" && (
-            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Book a Consultation</h3>
+            <div className="bg-[#FFFFFF] p-4 md:p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-[#0C103F] mb-4">Book a Consultation</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Select Doctor */}
                 <div>
-                  <label className="block text-gray-700">Select Doctor</label>
+                  <label className="block text-[#0C103F]">Select Doctor</label>
                   <select
                     name="doctor"
                     value={formData.doctor}
@@ -79,7 +105,7 @@ const Consultation = () => {
                 {/* Date & Time */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-700">Date</label>
+                    <label className="block text-[#0C103F]">Date</label>
                     <input
                       type="date"
                       name="date"
@@ -90,7 +116,7 @@ const Consultation = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700">Time</label>
+                    <label className="block text-[#0C103F]">Time</label>
                     <input
                       type="time"
                       name="time"
@@ -104,7 +130,7 @@ const Consultation = () => {
 
                 {/* Consultation Type */}
                 <div>
-                  <label className="block text-gray-700">Consultation Type</label>
+                  <label className="block text-[#0C103F]">Consultation Type</label>
                   <select
                     name="type"
                     value={formData.type}
@@ -120,7 +146,7 @@ const Consultation = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-teal-500 text-white py-2 rounded-lg hover:bg-teal-600 transition"
+                  className="w-full bg-teal-500 text-[#FFFFFF] py-2 rounded-lg hover:bg-teal-600 transition"
                 >
                   Book Now
                 </button>
@@ -130,10 +156,10 @@ const Consultation = () => {
 
           {/* Join Live Consultation */}
           {activeTab === "join" && (
-            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md text-center">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Join Live Consultation</h3>
+            <div className="bg-[#FFFFFF] p-4 md:p-6 rounded-lg shadow-md text-center">
+              <h3 className="text-xl font-bold text-[#0C103F] mb-4">Join Live Consultation</h3>
               <p className="text-gray-600">Click the button below to join your scheduled consultation.</p>
-              <button className="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition">
+              <button className="mt-4 bg-red-500 text-[#FFFFFF] py-2 px-4 rounded-lg hover:bg-red-600 transition">
                 Join Now
               </button>
             </div>
@@ -141,18 +167,19 @@ const Consultation = () => {
 
           {/* Previous Consultations */}
           {activeTab === "history" && (
-            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Previous Consultations</h3>
+            <div className="bg-[#FFFFFF] p-4 md:p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-bold text-[#0C103F] mb-4">Previous Consultations</h3>
               <ul className="divide-y divide-gray-200">
-                {[
-                  { doctor: "Dr. Rahman", date: "2024-03-10", time: "10:00 AM" },
-                  { doctor: "Dr. Ayesha", date: "2024-03-05", time: "02:00 PM" },
-                ].map((item, index) => (
+                {[{
+                  doctor: "Dr. Rahman", date: "2024-03-10", time: "10:00 AM"
+                }, {
+                  doctor: "Dr. Ayesha", date: "2024-03-05", time: "02:00 PM"
+                }].map((item, index) => (
                   <li key={index} className="p-4 flex justify-between">
                     <div>
                       <span className="font-bold">{item.doctor}</span> - {item.date} at {item.time}
                     </div>
-                    <span className="px-2 py-1 text-sm rounded bg-green-500 text-white">Completed</span>
+                    <span className="px-2 py-1 text-sm rounded bg-green-500 text-[#FFFFFF]">Completed</span>
                   </li>
                 ))}
               </ul>
