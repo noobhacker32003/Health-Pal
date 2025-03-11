@@ -33,9 +33,9 @@ const Services = () => {
   return (
     <div className="mt-10 py-6 text-center bg-[#EEF2FB] sm:px-20">
       <h1 className="text-4xl font-bold mb-6 text-[#0C103F]">Our Services</h1>
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <div className="flex flex-col lg:flex-row justify-center  gap-4">
         {servicesData.map((service) => (
-          <div key={service.id} className="card ml-10 bg-[#FFFFFF] w-64 sm:w-96 shadow-xl sm:p-5">
+          <div key={service.id} className="card mx-auto bg-[#FFFFFF] w-64 sm:w-96 shadow-xl sm:p-5">
             <div className="card-body sm:flex flex-col items-center">
               {service.icon} {/* Render the icon */}
               <h2 className="card-title mt-3 text-[#0C103F]">{service.title}</h2>
