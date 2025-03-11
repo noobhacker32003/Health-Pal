@@ -45,19 +45,19 @@ const Feedback = () => {
             
             {/* Featured Article */}
             <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+                <div className=" p-6 rounded-lg shadow-lg">
                     <span className="bg-green-500 text-white text-sm px-3 py-1 rounded-full">
                         {articles[0].readTime}
                     </span>
                     <img
                         src={articles[0].image}
                         alt={articles[0].title}
-                        className="w-full h-56 object-cover rounded-lg mt-2"
+                        className="w-full h-auto object-cover rounded-lg mt-2"
                     />
                     <h3 className="text-xl font-bold mt-4">{articles[0].title}</h3>
                     <p className="text-gray-600 mt-2">{articles[0].description}</p>
                     <p className="text-blue-600 mt-2">{articles[0].author}</p>
-                    <button className="mt-4 px-4 py-2  text-white py-2 rounded-md bg-[#D0DBF3] transition text-black">
+                    <button className="mt-4 px-4 py-2  rounded-md bg-[#D0DBF3] transition text-black">
                         Learn More
                     </button>
                 </div>
@@ -65,7 +65,7 @@ const Feedback = () => {
                 {/* Other Articles */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {articles.slice(1).map((article) => (
-                        <div key={article.id} className="bg-white p-4 shadow-lg rounded-lg">
+                        <div key={article.id} className="bg-white p-4  shadow-lg rounded-lg">
                             <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full">
                                 {article.readTime}
                             </span>
