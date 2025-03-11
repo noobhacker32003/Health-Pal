@@ -49,12 +49,14 @@ const Root = () => {
                     </div>
                 </div>
                 <div>
-                    <img className='h-[200px] sm:h-[450px] w-[700px]'
+                    <img className='h-[200px] sm:h-[450px] w-[700px] mt-5'
                         src="https://i.ibb.co.com/PGH2Zf83/Tae-August11.jpg" alt="HealthPal" />
                 </div>
             </div>
 
+            
             <Services />
+            
             <Feedback />
             <UserSay />
             <Stats />
