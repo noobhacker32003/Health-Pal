@@ -57,7 +57,7 @@ const Feedback = () => {
                     <h3 className="text-xl font-bold mt-4">{articles[0].title}</h3>
                     <p className="text-gray-600 mt-2">{articles[0].description}</p>
                     <p className="text-blue-600 mt-2">{articles[0].author}</p>
-                    <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg">
+                    <button className="mt-4 px-4 py-2 bg-[#0C103F] text-white py-2 rounded-md hover:bg-[#D0DBF3] transition hover:text-black">
                         Learn More
                     </button>
                 </div>

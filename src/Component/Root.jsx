@@ -31,21 +31,21 @@ const Root = () => {
     };
 
     return (
-        <div>
+        <div className="bg-[#EEF2FB]">
             <Navbar />
             <div className='flex sm:flex-row flex-col'>
                 <div>
-                    <h6 className='text-3xl sm:text-6xl font-bold pt-10 mx-10 mt-10'>
+                    <h6 className='text-3xl sm:text-6xl font-bold pt-10 mx-10 mt-10 text-[#0C103F]'>
                         Welcome to HealthPal
                     </h6>
-                    <h1 className='text-xl ml-10 sm:text-3xl sm:ml-20 mt-1'>
+                    <h1 className='text-xl ml-10 sm:text-3xl sm:ml-20 mt-1 text-[#0C103F]'>
                         All your health solutions in one place
                     </h1>
                     <div className='text-center mt-10'>
-                        <button onClick={handleGetStarted} className="btn btn-accent mx-3">
+                        <button onClick={handleGetStarted} className="bg-[#0C103F] text-white py-2 px-4 rounded-lg hover:bg-[#D0DBF3] transition mx-3">
                             Get Started
                         </button>
-                        <a className="btn btn-accent mx-3">Learn More</a>
+                        <a className="bg-[#0C103F] text-white py-2 px-4 rounded-lg hover:bg-[#D0DBF3] transition mx-3">Learn More</a>
                     </div>
                 </div>
                 <div>

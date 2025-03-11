@@ -41,7 +41,7 @@ const Sos = () => {
         </div>
       )}
 
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold text-center text-[#0C103F] mb-6">SOS Emergency</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">

@@ -25,7 +25,7 @@ const Navbar = () => {
             <GiPill className="h-10 w-10 text-white" />
           </a>
           <a href="/" className="text-xl font-bold text-white">
-            Health Pal
+            HealthPal
           </a>
         </div>
 
