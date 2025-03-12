@@ -63,7 +63,7 @@ const Sos = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {/* Call Ambulance Card */}
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h3 className="text-xl font-bold text-[#0C103F]">🚑 Call an Ambulance</h3>
+            <h3 className="text-xl font-bold text-[#0C103F]">Call an Ambulance</h3>
             <p className="text-[#0C103F] mt-2">Immediate medical assistance in case of emergency.</p>
             <button
               onClick={handleCallAmbulance}
@@ -75,7 +75,7 @@ const Sos = () => {
 
           {/* Previous SOS Calls */}
           <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-bold text-[#0C103F] mb-4">📜 Previous SOS Calls</h3>
+            <h3 className="text-xl font-bold text-[#0C103F] mb-4 text-center">Previous SOS Calls</h3>
             {previousSosCalls.length > 0 ? (
               <ul>
                 {previousSosCalls.map((call) => (

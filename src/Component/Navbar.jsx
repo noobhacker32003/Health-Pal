@@ -75,12 +75,12 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleLogout}
-            className="bg-[#D0DBF3] px-4 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition"
+            className="bg-[#D0DBF3] px-4 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition hidden sm:flex"
           >
             Logout
           </button>
         ) : (
-          <div className="flex gap-4 ">
+          <div className=" gap-4 hidden sm:flex">
             <button className="bg-[#D0DBF3] sm:px-4 px-2 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition">
               <a href="/register">Register</a>
             </button>
