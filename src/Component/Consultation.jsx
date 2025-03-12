@@ -27,7 +27,7 @@ const Consultation = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-gray-100">
+    <div className="relative  bg-gray-100">
       <Navbar></Navbar>
       {/* Toggle Button for Menu */}
       <div className="fixed -top-[2px] right-4 z-50  sm:hidden flex">
@@ -205,6 +205,7 @@ const Consultation = () => {
       </div>
       <Footer></Footer>
     </div>
+    
   );
 };
 

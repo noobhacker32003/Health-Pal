@@ -5,6 +5,7 @@ import Menu from "./Menu";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { GiPill } from "react-icons/gi";
 import Footer from "./Footer";
+import { CgProfile } from "react-icons/cg";
 
 const Profile = () => {
     const [user, setUser] = useState(null);
@@ -90,7 +91,10 @@ const Profile = () => {
             </div>
 
             {/* Profile Heading */}
-            <h1 className="text-2xl md:text-3xl font-bold text-[#0C103F] pt-10 p-4">Your Profile</h1>
+            <div className="flex items-center  p-4 ">
+            <CgProfile className="h-8 w-8  top-5"></CgProfile>        
+            <h1 className="text-2xl md:text-3xl font-bold text-[#0C103F] px-2  py-4">Your Profile</h1>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
                 {/* Profile Picture Section */}

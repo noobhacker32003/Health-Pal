@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { GiPill } from "react-icons/gi";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { Link, useLocation } from "react-router-dom"; // Import useLocation and Link
 import auth from "../../firebase.config";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const location = useLocation(); // Get the current location (route)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -17,57 +19,74 @@ const Navbar = () => {
     await signOut(auth); // Sign out the user
   };
 
+  // Function to check if a link is active
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <div>
       <div className="navbar fixed top-0 left-0 w-full z-50 sm:px-5 text-white bg-[#0C103F] shadow-md flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <a href="/">
+          <Link to="/">
             <GiPill className="h-10 w-10 text-white" />
-          </a>
-          <a href="/" className="text-xl font-bold text-white">
+          </Link>
+          <Link to="/" className="text-xl font-bold text-white">
             HealthPal
-          </a>
+          </Link>
         </div>
 
         {/* Navigation Links - Only visible when user is logged in */}
         {user && (
           <div className="hidden sm:flex">
-            <a
-              href="/home"
-              className="px-4 py-2 text-white hover:underline rounded-lg transition"
+            <Link
+              to="/home"
+              className={`px-4 py-2 text-white hover:underline rounded-lg transition ${
+                isActive("/home") ? "underline" : ""
+              }`}
             >
               Home
-            </a>
-            <a
-              href="/medicine"
-              className="px-4 py-2 text-white hover:underline rounded-lg transition"
+            </Link>
+            <Link
+              to="/medicine"
+              className={`px-4 py-2 text-white hover:underline rounded-lg transition ${
+                isActive("/medicine") ? "underline" : ""
+              }`}
             >
               Medicine
-            </a>
-            <a
-              href="/consultation"
-              className="px-4 py-2 text-white hover:underline rounded-lg transition"
+            </Link>
+            <Link
+              to="/consultation"
+              className={`px-4 py-2 text-white hover:underline rounded-lg transition ${
+                isActive("/consultation") ? "underline" : ""
+              }`}
             >
               Consultation
-            </a>
-            <a
-              href="/sos"
-              className="px-4 py-2 text-white hover:underline rounded-lg transition"
+            </Link>
+            <Link
+              to="/sos"
+              className={`px-4 py-2 text-white hover:underline rounded-lg transition ${
+                isActive("/sos") ? "underline" : ""
+              }`}
             >
               SOS
-            </a>
-            <a
-              href="/profile"
-              className="px-4 py-2 text-white hover:underline rounded-lg transition"
+            </Link>
+            <Link
+              to="/profile"
+              className={`px-4 py-2 text-white hover:underline rounded-lg transition ${
+                isActive("/profile") ? "underline" : ""
+              }`}
             >
               Profile
-            </a>
-            <a
-              href="/help"
-              className="px-4 py-2 text-white hover:underline rounded-lg transition"
+            </Link>
+            <Link
+              to="/help"
+              className={`px-4 py-2 text-white hover:underline rounded-lg transition ${
+                isActive("/help") ? "underline" : ""
+              }`}
             >
               Help & Support
-            </a>
+            </Link>
           </div>
         )}
 
@@ -80,12 +99,12 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <div className=" gap-4 hidden sm:flex">
+          <div className="gap-4 hidden sm:flex">
             <button className="bg-[#D0DBF3] sm:px-4 px-2 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition">
-              <a href="/register">Register</a>
+              <Link to="/register">Register</Link>
             </button>
             <button className="bg-[#D0DBF3] sm:px-4 px-2 py-2 text-[#0C103F] rounded-lg hover:bg-[#EEF2FB] transition">
-              <a href="/login">Login</a>
+              <Link to="/login">Login</Link>
             </button>
           </div>
         )}
