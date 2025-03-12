@@ -14,7 +14,7 @@ const Home = () => {
       <Navbar />
 
       {/* Toggle Button (Top Left) */}
-      <div className="absolute -top-[2px] right-4 z-50  sm:hidden flex">
+      <div className="fixed -top-[2px] right-4 z-50  sm:hidden flex">
         <button
           className="text-2xl text-[#0C103F]  bg-[#FFFFFF] p-2 rounded-full shadow-md mt-4"
           onClick={() => setIsMenuOpen(true)}
