@@ -8,4 +8,4 @@ Firebase Authentication (Login/Register)
 Protected routes with role-based access
 Fully responsive and clean UI
 
-# Live Demo: Health Pal
+# Live Demo: [Health Pal]([url](https://health-pal-b2f63.web.app/))
